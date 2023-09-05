@@ -13,10 +13,17 @@ export const App = () => {
           <NavLink to="/movies">Movies</NavLink>
         </li>
       </ul>
+      <hr />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<div>Movies info</div>} />
+        <Route path="/movies/:movieId" element={<div>Movies info</div>}>
+          <Route path="/movies/:movieId/cast" element={<div>Cast info</div>} />
+          <Route
+            path="/movies/:movieId/reviews"
+            element={<div>Reviews info</div>}
+          />
+        </Route>
       </Routes>
     </div>
   );

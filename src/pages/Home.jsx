@@ -1,4 +1,8 @@
 const Home = () => {
-  return <div>Top Movies Today</div>;
+  return (
+    <div>
+      <h2>Top Movies Today</h2>
+    </div>
+  );
 };
 export default Home;

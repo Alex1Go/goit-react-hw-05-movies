@@ -1,10 +1,7 @@
+import { SearhForm } from 'components/Searchform/SearchForm';
+
 const Movies = () => {
-  return (
-    <div>
-      <input />
-      <button></button>
-    </div>
-  );
+  return <SearhForm />;
 };
 
 export default Movies;

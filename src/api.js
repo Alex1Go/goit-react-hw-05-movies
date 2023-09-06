@@ -1,11 +1,9 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-// const API_KEY = '3373af60a4ee1fe7510a1a61c11380e1';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+const API_KEY = '8aba4e3419a44727b7eb66f35fce4fa2';
 
-// export const fetchImages = async (query, page) => {
-//   const responce = await axios.get(
-//     `/?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
-//   );
-//   return responce.data;
-// };
+export const getTrendingFilms = async () => {
+  const responce = await axios.get(`trending/movie/day?key=${API_KEY}`);
+  return responce;
+};

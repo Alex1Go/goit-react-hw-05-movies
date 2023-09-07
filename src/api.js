@@ -12,3 +12,8 @@ export const getSearchFilms = async () => {
   const responce = await axios.get(`search/movie?api_key=${API_KEY}`);
   return responce;
 };
+
+export const getMovieDetails = async () => {
+  const responce = await axios.get(`movie/movie_id?api_key=${API_KEY}`);
+  return responce;
+};

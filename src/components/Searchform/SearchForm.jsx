@@ -1,8 +1,4 @@
-// import { useState } from 'react';
-
-export const SearhForm = ({ setSearchParams, query }) => {
-  // const [query, setQuery] = useState();
-
+export const SearchForm = ({ setSearchParams, query }) => {
   const handleSubmit = value => {
     setSearchParams({ query: value });
   };

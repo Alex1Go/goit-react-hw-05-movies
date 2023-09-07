@@ -2,23 +2,32 @@ import { getSearchFilms } from 'api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const { movieId } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
 
   useEffect(() => {
-    if (!movieId) {
+    if (!query) {
       setMovies([]);
       return;
     }
-    getSearchFilms(movieId).then(setMovies);
-  }, [movieId]);
+    const fetchMoviesSearch = async () => {
+      try {
+        const data = await getSearchFilms(query);
+        setMovies(data.results);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchMoviesSearch();
+  }, [query]);
 
   return (
     <>
-      <SearchForm />
+      <SearchForm setSearchParams={setSearchParams} />
       <MoviesList movies={movies} />
     </>
   );

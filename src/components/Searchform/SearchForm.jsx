@@ -1,6 +1,16 @@
-export const SearchForm = ({ setSearchParams, query }) => {
-  const handleSubmit = value => {
-    setSearchParams({ query: value });
+import { useState } from 'react';
+
+export const SearchForm = ({ setSearchParams }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!query) return;
+    setSearchParams(query);
+  };
+
+  const handleInputChange = e => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -11,9 +21,29 @@ export const SearchForm = ({ setSearchParams, query }) => {
         autoFocus
         placeholder="Search movies"
         value={query}
-        onChange={setSearchParams}
+        onChange={handleInputChange}
       />
       <button type="submit">Search</button>
     </form>
   );
 };
+
+// export const SearchForm = ({ setSearchParams, query }) => {
+//   const handleSubmit = value => {
+//     setSearchParams({ query: value });
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         autoComplete="off"
+//         autoFocus
+//         placeholder="Search movies"
+//         value={query}
+//         onChange={setSearchParams}
+//       />
+//       <button type="submit">Search</button>
+//     </form>
+//   );
+// };

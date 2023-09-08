@@ -1,12 +1,14 @@
 import { getMovieDetails } from 'api';
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
 
   useEffect(() => {
     if (!movieId) return;
@@ -23,6 +25,7 @@ const MovieDetails = () => {
   if (!movieData) return;
   return (
     <>
+      <Link to={backLink}>Go back</Link>
       <div>
         <img
           src={

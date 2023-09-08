@@ -13,7 +13,7 @@ export const Cast = () => {
     const fetchMovieCast = async () => {
       try {
         const data = await getMovieCast(movieId);
-        setCastData(data);
+        setCastData(data.cast);
       } catch (error) {
         console.log(error.message);
       }
@@ -22,13 +22,13 @@ export const Cast = () => {
   }, [movieId]);
   if (!castData) return;
   if (castData.length === 0) {
-    return;
+    return <p>no casts </p>;
   }
 
   return (
     <>
       <ul>
-        {castData.map(({ id, name, profile_path }) => (
+        {castData.map(({ id, character, name, profile_path }) => (
           <li key={id}>
             <img
               src={
@@ -40,6 +40,7 @@ export const Cast = () => {
               alt="poster"
             />
             <h2>{name}</h2>
+            <p>{`Character: ${character}`}</p>
           </li>
         ))}
       </ul>

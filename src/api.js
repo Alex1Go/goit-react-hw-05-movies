@@ -12,6 +12,7 @@ export const getSearchFilms = async query => {
   const responce = await axios.get(
     `search/movie?api_key=${API_KEY}&query=${query}`
   );
+  console.log(responce.data);
   return responce.data.results;
 };
 

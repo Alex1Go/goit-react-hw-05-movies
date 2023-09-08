@@ -13,7 +13,7 @@ export const getSearchFilms = async query => {
     `search/movie?api_key=${API_KEY}&query=${query}`
   );
   console.log(responce.data);
-  return responce.data.results;
+  return responce.data;
 };
 
 export const getMovieDetails = async movieId => {

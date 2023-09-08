@@ -1,3 +1,5 @@
+import css from './Reviews.module.css';
+
 import { getMovieReviews } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -26,8 +28,8 @@ export const Reviews = () => {
     <ul>
       {reviewsData.map(({ id, author, content }) => (
         <li key={id}>
-          <h5>{`Author: ${author}`}</h5>
-          <p>{content}</p>
+          <h5 className={css.title}>{`Author: ${author}`}</h5>
+          <p className={css.text}>{content}</p>
         </li>
       ))}
     </ul>

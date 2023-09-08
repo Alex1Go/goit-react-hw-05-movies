@@ -1,0 +1,26 @@
+  .container {
+      padding: 25px;
+  }
+
+  .header {
+      margin-bottom: 20px;
+      background-color: rgb(173, 199, 199);
+      padding: 10px 20px;
+      border-radius: 5px;
+  }
+
+  .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 18px;
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 20px;
+  }
+
+  .item:hover,
+  .item:focus {
+      color: rgb(28, 116, 116);
+  }

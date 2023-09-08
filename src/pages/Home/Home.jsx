@@ -1,3 +1,5 @@
+import css from './Home.module.css';
+
 import { getTrendingFilms } from 'api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
@@ -10,8 +12,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Top Movies Today</h2>
+    <div className={css.list}>
+      <h2 className={css.title}>Top Movies Today</h2>
       <MoviesList movies={movies} />
     </div>
   );

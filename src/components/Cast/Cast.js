@@ -1,3 +1,5 @@
+import css from './Cast.module.css';
+
 import { getMovieCast } from 'api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -29,7 +31,7 @@ export const Cast = () => {
     <>
       <ul>
         {castData.map(({ id, character, name, profile_path }) => (
-          <li key={id}>
+          <li key={id} className={css.item}>
             <img
               src={
                 profile_path
@@ -39,8 +41,8 @@ export const Cast = () => {
               width={250}
               alt="poster"
             />
-            <h2>{name}</h2>
-            <p>{`Character: ${character}`}</p>
+            <h2 className={css.title}>{name}</h2>
+            <p className={css.text}>{`Character: ${character}`}</p>
           </li>
         ))}
       </ul>

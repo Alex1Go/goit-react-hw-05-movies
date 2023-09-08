@@ -1,3 +1,5 @@
+import css from './MovieDetails.module.css';
+
 import { getMovieDetails } from 'api';
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
@@ -25,8 +27,10 @@ const MovieDetails = () => {
   if (!movieData) return;
   return (
     <>
-      <Link to={backLink}>Go back</Link>
-      <div>
+      <Link to={backLink} className={css.back}>
+        Go back
+      </Link>
+      <div className={css.movieblock}>
         <img
           src={
             movieData.poster_path
@@ -37,26 +41,28 @@ const MovieDetails = () => {
           alt="poster"
         />
         <div>
-          <h2>{movieData.title}</h2>
-          <p>Rating: {movieData.vote_average}</p>
-          <h3>Overview</h3>
-          <p>{movieData.overview}</p>
-          <h3>Genres</h3>
+          <h2 className={css.title}>{movieData.title}</h2>
+          <p className={css.text}>Rating: {movieData.vote_average}</p>
+          <h3 className={css.titletwo}>Overview</h3>
+          <p className={css.text}>{movieData.overview}</p>
+          <h3 className={css.titletwo}>Genres</h3>
           <ul>
             {movieData.genres &&
               movieData.genres.map(genre => (
-                <li key={genre.id}>{genre.name}</li>
+                <li key={genre.id} className={css.text}>
+                  {genre.name}
+                </li>
               ))}
           </ul>
         </div>
       </div>
       <div>
-        <h3>Additional information</h3>
+        <h3 className={css.titletwo}>Additional information</h3>
         <ul>
-          <li>
+          <li className={css.text}>
             <Link to="cast">Cast</Link>
           </li>
-          <li>
+          <li className={css.text}>
             <Link to="reviews">Reviews</Link>
           </li>
         </ul>

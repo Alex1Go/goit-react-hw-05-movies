@@ -1,0 +1,15 @@
+.item {
+    margin-top: 20px;
+}
+
+.title {
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.text {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+}

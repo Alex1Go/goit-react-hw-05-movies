@@ -33,5 +33,5 @@ export const getMovieCast = async movieId => {
 //     `movie/${movieId}/reviews?api_key=${API_KEY}`
 //   );
 //   console.log(responce.data);
-//   return responce.data.results;
+//   return responce.data;
 // };

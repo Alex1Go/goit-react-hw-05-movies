@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 export const Cast = () => {
   const { movieId } = useParams();
-  const [castData, setCastData] = useState(null);
+  const [castData, setCastData] = useState([]);
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 

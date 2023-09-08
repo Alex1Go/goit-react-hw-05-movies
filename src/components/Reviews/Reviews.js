@@ -17,7 +17,7 @@ export const Reviews = () => {
     };
     fetchMovieReviews();
   }, [movieId]);
-  if (!reviewsData) return;
+
   if (reviewsData.length === 0) {
     return <p>no reviews </p>;
   }

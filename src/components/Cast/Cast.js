@@ -20,7 +20,7 @@ export const Cast = () => {
     };
     fetchMovieCast();
   }, [movieId]);
-  if (!castData) return;
+
   if (castData.length === 0) {
     return <p>no casts </p>;
   }
